@@ -1,7 +1,7 @@
 import requests
 import bs4
 
-# First we use requests to geta Reponse from the LoGec website
+# First we use requests to get a Reponse from the LeGec website
 # This web script will generate a list of top 1000 working economic papers
 # ranked by downloads according to REPEC ranking
 
