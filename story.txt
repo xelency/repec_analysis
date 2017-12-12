@@ -1,0 +1,5 @@
+The data to be analyzed: reading the PDF version of every economics paper seems redundant.
+The abstract usually includes the important buzz words, such as the method used and the subject of the analysis.
+the JEL code may also be useful for ML analysis.
+Since repec has no API, I will need to scrap the HTML for all data.
+- Consider ranking authors by previous works and citations?
