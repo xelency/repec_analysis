@@ -1,5 +1,6 @@
-The data to be analyzed: reading the PDF version of every economics paper seems redundant.
-The abstract usually includes the important buzz words, such as the method used and the subject of the analysis.
-the JEL code may also be useful for ML analysis.
-Will use API to pull data. Sent request for authorization to admin.
-- Consider ranking authors by previous works and citations?
+The method the scrapper will obtain the required data is two-fold
+Step 1: Scrap LEGEC statistical analysis page which displays top 1000 working papers on all economic research fields
+        by downloads and views ranking. Obtain a list of 1000 links to their respective REPEC pages.
+Step 2: Crawl into links from list obtained in step 1, and scrap:  Author Names, Abstract, and JEL Code
+
+-
