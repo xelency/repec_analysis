@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+import bs4
 
 url = "https://logec.repec.org/scripts/itemstat.pf?topnum=1000&type=redif-paper&sortby=ld&.submit=New+List"
 
@@ -27,9 +27,8 @@ try:
 except Exception as exc:
     print('There was a problem: %s' % exc)
 
-rawPage = BeautifulSoup(page.text, 'html.parser')  # BeautifulSoup 4 HTML parser
+rawPage = bs4.BeautifulSoup(page.text, 'html.parser')  # BeautifulSoup 4 HTML parser
 
-# creates a list, rawList, that contains all links inside the table
-rawList = [a.get('href') for a in rawPage.find_all('a', href=True)]
+rawList = rawPage.select('.rightmost a')  # creates a list, rawList, that contains all links inside the table
 
 linkList = cleanTheData(rawList)
