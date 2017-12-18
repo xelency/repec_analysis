@@ -1,7 +1,7 @@
 import requests
 import bs4
 
-# First we use requests to get a Reponse from the LeGec website
+# First we use requests to geta Reponse from the LoGec website
 # This web script will generate a list of top 1000 working economic papers
 # ranked by downloads according to REPEC ranking
 
@@ -16,4 +16,19 @@ except Exception as exc:
 
 
 rawPage = bs4.BeautifulSoup(page.text, "html.parser") # BeautifulSoup 4 HTML parser
+
+rawList=rawPage.select(".rightmost a") # creates a list, rawList, that contains all links inside the table
+
+def cleanTheData(original): 
+    masterList=[]
+    for item in rawList:
+        a=item.get('href')
+        b=item.get_text()
+        if a[1:8] == unicode("scripts"):
+            masterList.append((a,b))
+    return masterList
+
+linkList=cleanTheData(rawList)
+
+
 
