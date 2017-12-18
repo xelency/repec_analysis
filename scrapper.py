@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import requests
-import bs4
+from bs4 import BeautifulSoup
 
 url = "https://logec.repec.org/scripts/itemstat.pf?topnum=1000&type=redif-paper&sortby=ld&.submit=New+List"
 
@@ -16,7 +16,7 @@ def cleanTheData(original):
     return masterList
 
 
-# First we use requests to geta Reponse from the LoGec website
+# First we use requests to get a response from the LoGec website
 # This web script will generate a list of top 1000 working economic papers
 # ranked by downloads according to REPEC ranking
 
@@ -29,8 +29,8 @@ try:
 except Exception as exc:
     print('There was a problem: %s' % exc)
 
-rawPage = bs4.BeautifulSoup(page.text, "html.parser")  # BeautifulSoup 4 HTML parser
+rawPage = BeautifulSoup(page.text, 'html.parser')  # BeautifulSoup 4 HTML parser
 
-rawList = rawPage.select(".rightmost a")  # creates a list, rawList, that contains all links inside the table
+rawList = rawPage.find_all('a')  # creates a list, rawList, that contains all links inside the table
 
 linkList = cleanTheData(rawList)
