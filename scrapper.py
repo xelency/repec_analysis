@@ -31,6 +31,7 @@ except Exception as exc:
 
 rawPage = BeautifulSoup(page.text, 'html.parser')  # BeautifulSoup 4 HTML parser
 
-rawList = rawPage.find_all('a')  # creates a list, rawList, that contains all links inside the table
+# creates a list, rawList, that contains all links inside the table
+rawList = [a.get('href') for a in rawPage.find_all('a', href=True)]
 
 linkList = cleanTheData(rawList)
