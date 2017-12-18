@@ -1,0 +1,6 @@
+The method the scrapper will obtain the required data is two-fold
+Step 1: Scrap LEGEC statistical analysis page which displays top 1000 working papers on all economic research fields
+        by downloads and views ranking. Obtain a list of 1000 links to their respective REPEC pages.
+Step 2: Crawl into links from list obtained in step 1, and scrap:  Author Names, Abstract, and JEL Code
+
+-
